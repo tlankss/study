@@ -1,0 +1,33 @@
+<script>
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+ var isValid = function(s) {
+    if(s.length % 2) {
+        return false
+    }
+    // while(s.length){
+    //     var temp = s;
+    //     s = s.replace('()', '');
+    //     s = s.replace('[]', '');
+    //     s = s.replace('{}', '');
+    //     if (s == temp) return false
+    // }
+    let mapObj = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    },
+    newArr = []
+    for(var a of s){
+        if(a in mapObj){
+            newArr.push(a)
+        }else{
+            if (a != mapObj[newArr.pop()] || newArr.length > s.length) return false
+        }
+    }
+    return !newArr.length
+};
+console.log(isValid('([]))').concat)
+</script>

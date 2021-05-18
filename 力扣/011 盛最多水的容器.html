@@ -1,0 +1,18 @@
+<html></html>
+<script>
+    /**
+    * @param {number[]} height
+    * @return {number}
+    */
+    var maxArea = function(height) {
+        if(height.length < 2) return 0;
+        let maxHg = 0,
+            heightlg = height.length
+        for(let i=0; i<heightlg; i++){
+            let max = height.reduce((t,v,ind) => t > Math.min(height[i],v) * (ind - i) ? t : Math.min(height[i],v) * (ind - i) ,0)
+            maxHg = max > maxHg ? max : maxHg
+        }
+        return  maxHg
+    };
+    console.log(maxArea([1,8,6,2,5,4,8,3,7]))
+</script>

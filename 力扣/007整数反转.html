@@ -1,0 +1,25 @@
+<html></html>
+<script>
+    var reverse = function(x) {
+        // if(x <= -2147483648 || x >= 2147483648) return 0
+        let numString = String(x).split('')
+        if(x < 0) numString.splice(0,1)
+        let zheArr = [...new Set(numString.concat([]).sort((a,b) => a-b))]
+        if(zheArr[0] === '0') zheArr.splice(0,1)
+        let linInd = numString.concat([]).reverse().findIndex(item => Number(item) !== 0)
+        let finalArr = []
+        let reverLeg = zheArr.length - 1
+        let numStringLeg = numString.length - 1
+        numString.forEach((item,ind) => {
+            let index = zheArr.indexOf(item)
+            if(index !== -1){
+                finalArr.push(zheArr[reverLeg - index])
+            }else{
+                if(numStringLeg > numStringLeg - linInd) 
+                ind > numStringLeg - linInd ? finalArr.push('') : finalArr.push('0')
+            }
+        })
+        return x < 0 ? Number('-'+(finalArr.join(''))) : Number(finalArr.join(''))
+    };
+    console.log(-123 > -213)
+</script>

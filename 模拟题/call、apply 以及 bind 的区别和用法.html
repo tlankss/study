@@ -1,0 +1,22 @@
+<script>
+    var length = 10;
+
+    function fn () {
+        console.log(this.length);
+    }
+    
+    var obj = {
+        length: 5,
+        method: function (fn) {
+            console.log(arguments)
+            fn();
+            arguments[0]();
+        }
+    };
+    
+    function ftn(){
+        console.log(this)
+        
+    }
+    obj.method(fn, 1);
+</script>

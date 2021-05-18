@@ -1,0 +1,28 @@
+<html></html>
+<script>
+    // 字符串转整数
+    var myAtoi = function(s) {
+        let str = s.replace(/^\s*/g,'')
+        if(!(str[0] === '-' || str[0] === '+') && isNaN(str[0]-0)) return 0
+        let newStr = '',
+            min = Math.pow(-2, 31),
+            max = Math.pow(2, 31) - 1
+        for(ind in str){
+            if(Number(ind) !== 0 && isNaN(str[ind]-0) || str[ind] === ' '){
+                break  
+            }else{
+                newStr+= str[ind]
+                if(Number(ind) === (str.length - 1)) break
+            }
+        }
+        if (Number(newStr) < min || Number(newStr) > max)  return Number(newStr) < min ? min : max
+        return Number(newStr) || 0
+    };
+    var myAtoi1 = function(s) {
+        let num = parseInt(s,10),
+            min = Math.pow(-2, 31),
+            max = Math.pow(2, 31) - 1
+        return isNaN(num) ? 0 : Math.max(Math.min(num,max),min)
+    }
+    console.log(myAtoi1("-31231"))
+</script>

@@ -1,0 +1,56 @@
+<html></html>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+    let jArr = JSON.parse(JSON.stringify(nums)).sort((a,b) => a-b),
+        ind = jArr.findIndex(res => res > 0),
+        nArr = jArr.splice(0, ind);
+        console.log(jArr,nArr)
+    let rtArr = jArr.reduce((v,t)=> {
+        for(let i=0; i<=nArr.length; i++){
+            let onNum = 0 - nArr[i] - t,
+                nArr1 = JSON.parse(JSON.stringify(nArr)).slice(0,i),
+                onInd = nArr1.indexOf(onNum)            
+            if(onInd !== -1) {
+                v.push([t,nArr[i],nArr[onInd]])
+            }
+        }
+        return v
+    },[])
+    let rtArr1 = nArr.reduce((v,t)=> {
+        for(let i=0; i<=jArr.length; i++){
+            let onNum = 0 - jArr[i] - t,
+                jArr1 = JSON.parse(JSON.stringify(jArr)).slice(0,i),
+                onInd = jArr1.indexOf(onNum)            
+            if(onInd !== -1) {
+                v.push([t,jArr[i],jArr[onInd]])
+            }
+        }
+        return v
+    },[])
+    nums.reduce((v,t) => t === 0 ? v+=1 : v,0) >= 3 ? rtArr.push([0,0,0]) : ''
+    let res = {};
+    rtArr.concat(rtArr1).map(item => {
+        item.sort((a, b) => a - b);
+        res[item] = item;
+    })
+    return Object.values(res)
+};
+    var threeSum1 = function(nums) {
+      let res = []
+      for (let i = 0; i < nums.length - 2; i++) { // 每个人
+        for (let j = i + 1; j < nums.length - 1; j++) { // 依次拉上其他每个人
+          for (let k = j + 1; k < nums.length; k++) { // 去问剩下的每个人
+            if (nums[i] + nums[j] + nums[k] === 0) { // 我们是不是可以一起组队
+              res.push([nums[i], nums[j], nums[k]])
+            }
+          }
+        }
+      }
+      return res
+    }
+console.log(threeSum1([-5,14,1,-2,11,11,-10,3,-6,0,3,-4,-9,-13,-8,-7,9,8,-7,11,12,-7,4,-7,-1,-5,13,1,-2,8,-13,0,-1,3,13,-13,-1,10,5,1,-13,-15,12,-7,-13,-11,-7,3,13,1,0,2,1,11,10,8,-8,1,-14,-3,-6,-12,12,0,6,2,2,-9,-3,14,-1,-9,14,-4,-1,8,-8,7,-4,12,-14,3,-9,2,0,-13,-13,-1,3,-12,11,4,-9,8,11,5,-5,-10,3,-1,-11,-13,5,-12,-10,11,11,-3,-5,14,-13,-4,-5,-7,6,2,-13,0,8,-3,4,4,-14,2]))
+</script>

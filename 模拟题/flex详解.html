@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>flex</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .fx{display:flex}
+            /* .box{flex:1} */
+            /* 
+                flex-flow  两个属性flex-direction 和 flex-wrap组合为简写属性 flex-flow
+                    参数一:flex-direction   参数二:wrap
+             */
+            /* 
+                flex-direction  主轴
+                    row(默认)  row-reverse  column column-reverse
+             */
+            .fdr{flex-direction: row;} 
+            .fdrr{flex-direction: row-reverse;}
+            .fdc{flex-direction: column-reverse;}
+            .fdcr{flex-direction: column-reverse;}
+            /* 
+                flex-wrap 是否换行
+                    nowrap(默认)  wrap
+             */
+            .fww{flex-wrap: wrap;}
+            .fwn{flex-wrap: nowrap;}
+            
+            /* 
+                Flex 元素属性
+                    flex-basis： 定义该元素的空间大小  默认为0
+                    flex-grow  占据flex布局中的剩余元素 默认为1
+                    flex-shrink 处理flex元素收缩的问题 默认值为auto
+                简写: flex: flex-grow flex-shrink flex-basis
+             */
+            .fb{flex-basis: 200px;}
+            .fg{flex-grow:1}
+            .fs1{flex-shrink: 1}
+            .fs2{flex-shrink: 2}
+
+            /* 
+                align-item
+                    stretch
+                    flex-start
+                    flex-end
+                    center
+             */
+             /* 
+                justify-content
+                    stretch
+                    flex-start
+                    flex-end
+                    center
+                    space-around
+                    space-between
+             */
+        </style>
+    </head>
+    <body>
+        <div class="fx fdr">
+            <div class="box fb fs1" style="background-color: green;">a</div>
+            <div class="box fb fs2" style="background-color: red;">b</div>
+            <div class="box fb fg fs1" style="background-color: #000;">c</div>
+        </div>
+        <a href="" value='21312'></a>
+        <script src="" async defer></script>
+    </body>
+</html>

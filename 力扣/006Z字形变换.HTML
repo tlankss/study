@@ -1,0 +1,21 @@
+<html></html>
+<script>
+ /** 006
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+    if(numRows === 1) return s
+    let newArr = new Array(numRows).fill('')
+    let indNum = (numRows-1)*2
+    s.split('').forEach((item,ind) => {
+        let num = ind % indNum
+        newArr[Math.min(num,indNum-num)] += item
+    })
+    return newArr.join('')
+};
+console.log(Math.floor(-1 / 10) * 10)
+console.log(convert('LEETCODEISHIRING',3))
+// LEETCODEISHIRING
+</script>

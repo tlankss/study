@@ -1,0 +1,22 @@
+<script>
+    // 给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
+    /**
+    * @param {number} n
+    * @return {number[][]}
+        方向是 →↓←↑；
+        移动个数是n, n-1,n-1, n-2,n-2, .... 1,1
+        len是记录缩减步数后方向改变了几次，dis是一个方向移动步数；len=2，dis-1
+        step是一个方向移动的次数 step=dis，换向
+        direction是方向，取余4， 0→ 1↓ 2← 3↑
+    */
+    var generateMatrix = function(n) {
+        if(n<0 || n>20) return
+        let returnArr = Array.from({length:n}).map((item,index)=>[]),
+            arrow = r // r d l u
+        console.log(returnArr)
+        for(let i=1; i< ((n*n)+1); i++){
+            
+        }
+    };
+    generateMatrix(9)
+</script>

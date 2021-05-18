@@ -1,0 +1,16 @@
+<html></html>
+<script>
+    var findMedianSortedArrays = function(nums1, nums2) {
+        if(!nums1.length)  nums1= []
+        if(!nums2.length)  nums2= []
+        let nums = (nums1.concat(nums2)).sort((n1,n2)=> n1-n2)
+        let ind = Math.floor((nums.length / 2))
+        if(nums.length % 2){
+            return nums[ind].toFixed(5)
+        } else {
+            return ((nums[ind-1] + nums[ind]) / 2).toFixed(5)
+        }
+        
+    };
+    console.log(findMedianSortedArrays([1],[2,3,5,56,6,756,89,20]))
+</script>

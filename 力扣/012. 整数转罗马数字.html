@@ -1,0 +1,27 @@
+<html></html>
+<script>
+    /**
+    * @param {number} num
+    * @return {string}
+        字符          数值
+        I             1
+        V             5
+        X             10
+        L             50
+        C             100
+        D             500
+        M             1000
+    */
+    var intToRoman = function(num) {
+        if(num< 1 || num>3999) return
+        // ['I','V','X','L','C','D','M']
+        let G = ['','I','II','III','IV','V','VI','VII','VIII','VX'],
+            S = ['','X','XX','XXX','XL','L','LX','LXX','LXXX','XC'],
+            B = ['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM'],
+            Q = ['','M','MM','MMM'],
+            strNum = String(num).split('').reverse().join('');
+            // Q[Math.floor(num/1000)] + B[Math.floor((num%1000)/100)] + S[Math.floor((num%100)/10)] + G[num%10]
+        return Q[strNum[3]? strNum[3] : 0] + B[strNum[2]? strNum[2] : 0] + S[strNum[1]? strNum[1] : 0] + G[strNum[0]]
+    };
+    console.log(intToRoman(3000))
+</script>

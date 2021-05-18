@@ -1,0 +1,15 @@
+<html></html>
+<script>
+    const add = (...a) => { 
+        console.log(a,...a)
+        let num = a.reduce((t, c) => t + c, 0) 
+        const item = (...b) => { 
+            console.log(b)
+            num = num + b.reduce((t, c) => t + c, 0) 
+            return item 
+        }
+        item.toString = () => num 
+        return item 
+    } 
+    console.log(add(1,2,'1')); //18
+</script>

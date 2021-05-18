@@ -1,0 +1,18 @@
+<html></html>
+<script>
+    /**
+    * @param {string} s
+    * @return {number}
+    */
+var romanToInt = function(s) {
+    if(s.includes('MMMM')) return
+    let strArr = ['I','V','X','L','C','D','M'],
+        numArr = [0,1,5,10,50,100,500,1000],
+        nums = 0;
+    for(let i=0; i < s.length; i++){
+        strArr.indexOf(s[i+1]) > strArr.indexOf(s[i]) ? nums-= numArr[strArr.indexOf(s[i]) + 1] : nums+= numArr[strArr.indexOf(s[i]) + 1]
+    }
+    return nums
+};
+console.log(romanToInt('MCMXCIV'))
+</script>

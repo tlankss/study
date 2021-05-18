@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script>
+            // 知识点  
+            /*
+                函数柯里化(curry) :把一个接收多个参数的函数，设计成一个：接收单一参数的函数，并返回一个能够接收剩余参数的新函数，最后返回结果。
+                优点:
+                    1参数复用  2提前确认
+                拓展：
+                    bind，实现的机制就是Currying.
+            */
+            function curryingCheck(reg){ //是否有数字
+                return function(txt){
+                    return reg.test(txt)
+                }
+            }
+            var hasNumber = curryingCheck(/\d+/g)
+            hasNumber('阿城市擦') //true
+            hasNumber(22) //true
+
+
+
+            /**
+                实现一个add方法，使计算结果能够满足如下预期：
+                add(1)(2)(3) = 6;
+                add(1, 2, 3)(4) = 10;
+                add(1)(2)(3)(4)(5) = 15;
+            */
+            function add2(){
+                var _arg = Array.prototype.slice.call(arguments) // 第一次执行时，定义一个数组专门用来存储所有的参数
+                var _adder = function(){    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
+                    _arg.push(...arguments)
+                    return _adder
+                }
+                _adder.toString = function(){ // 利用toString隐式转换的特性(参数变化，自动触发)，当最后执行时隐式转换，并计算最终的值返回 
+                    return _arg.reduce((a,b) => {
+                        return a+b
+                    })
+                }
+                return _adder
+            }
+
+            // 简单
+            const curry = (fn, ...args) =>
+                // 函数的参数个数可以直接通过函数数的.length属性来访问
+                args.length >= fn.length // 这个判断很关键！！！
+                // 传入的参数大于等于原始函数fn的参数个数，则直接执行该函数
+                ? fn(...args)
+                /**
+                 * 传入的参数小于原始函数fn的参数个数时
+                 * 则继续对当前函数进行柯里化，返回一个接受所有参数（当前参数和剩余参数） 的函数
+                */
+                : (..._args) => curry(fn, ...args, ..._args);
+            function add1(x, y, z) {
+                return x + y + z;
+            }
+            const add = curry(add1);
+            console.log(add(1, 2, 3));
+
+        </script>
+        <script>
+            function acc(){
+                var arr = [...arguments]
+                var _acc = function(){
+                    arr.push(...arguments)
+                    return _acc
+                }
+                _acc.toString = function(){ // toString隐式转换的特性(参数变化，自动触发)，当最后执行时隐式转换，并计算最终的值返回 
+                    return arr.reduce((a,b) => {
+                        return a+b
+                    })
+                }
+                return _acc
+            }
+            console.log(acc(1,2,3)(2,2))
+        </script>
+    </body>
+</html>

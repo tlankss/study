@@ -1,0 +1,56 @@
+<script>
+    /*
+        给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
+            输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+            输出：[1,2,3,6,9,8,7,4,5]
+
+            输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+            输出：[1,2,3,4,8,12,11,10,9,5,6,7]
+    */
+    //  谈过查找边界 去添加进新数组
+    var spiralOrder = function(matrix) {
+        // matrix[i][j]
+        var m = matrix.length -1, // 行 判断条件
+            n = matrix[0].length -1, //列 判断条件
+            i = 0,  // 行参数
+            j = 0,  // 列参数
+            newArr = [],
+            arrow = n==0 ? 'd' : 'r' // 方向 r d l u 小于0就往下
+            arrowR = n, // 右
+            arrowD = m, // 下
+            arrowL = 0, // 左
+            arrowU = 0; // 上
+            console.log(m,n)
+        for(let a=0; a < (m+1)*(n+1); a++){
+            console.log(i,j,arrow)
+            newArr.push(matrix[i][j])
+            if(arrow === 'r'){
+                j++;
+                if(j === arrowR){
+                    arrow = 'd'
+                    arrowU++
+                }
+            }else if(arrow === 'd'){
+                i++;
+                if(i === arrowD){
+                    arrow = 'l'
+                    arrowR--
+                }
+            }else if(arrow === 'l'){
+                j--;
+                if(j === arrowL){
+                    arrow = 'u'
+                    arrowD--
+                }
+            }else if(arrow === 'u'){
+                i--;
+                if(i === arrowU){
+                    arrow = 'r'
+                    arrowL++
+                }
+            }
+        }
+        return newArr
+    };  
+    console.log(spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]))
+</script>

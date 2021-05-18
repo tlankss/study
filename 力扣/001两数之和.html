@@ -1,0 +1,15 @@
+<script>
+    const twoSum = function(nums, target){
+        for(let i=0, leg = nums.length; i<leg; i++){
+            const _num = target - nums[i],
+                newNums = nums.concat([]).splice(i+1,leg),
+                ind = newNums.findIndex((val,index)=>val == _num)
+            if(ind !== -1){
+                return [i, ind + i + 1]
+            }
+        }
+        return 
+    }
+    console.log(twoSum([-1,-2,-3,-4,-5], -8))
+    let map_ = new Map()
+</script>
