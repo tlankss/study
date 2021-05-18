@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin:0;padding:0;}
+    .main{
+      height:100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .top{
+      height:60px;
+      background:pink;
+    }
+    .content{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background:yellow;
+	  min-height: scale(100vh - 120px);
+    }
+    .content .content_top{
+        flex:1;
+        overflow: scroll;
+        background: #f5f5f5;
+        padding:10px 16px;
+    }
+    .content .content_bottom{
+      height:60px;
+      background:purple;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="top">顶部</div>
+    <div class="content">
+      <div class="content_top">
+        主要内容块,需要上下滑动		
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>4</li>
+			<li>65</li>
+			<li>6</li>
+			<li>7</li>
+			<li>7</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>	
+      </div>
+      <div class="content_bottom">
+        底部
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				position: relative;
+				background-color: #000000;
+			}
+			.box::before{
+				content: '';
+				position: absolute;
+				top: -20px;
+				right: -20px;
+				width: 0;
+				height: 0;
+				border-width: 20px;
+				border-style: solid;
+				border-color: red transparent transparent   transparent;  
+				transform: rotate(-135deg);
+			}
+			.box::after{
+				content: '✔';
+				width: 15px !important;
+				height: 15px !important;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 0;
+				height: 0;
+				color: #fff;
+				text-align: center;
+				line-height: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		function nums(){
+			let arr = []
+			for(let i=0;i<10000;i++){
+				arr.push(Math.ceil(Math.random()*10000))
+			}
+			return arr
+		}
+		let num = nums()
+		// let num=[1,2,5,3,94,4,2,4,1,6,8,]
+		function fn1(arr){	//冒泡排序 		 排序思路：遍历数组，每次遍历就将最大（或最小）值推至最前。越往后遍历查询次数越少	 270ms
+			let start = new Date().getTime();//起始时间
+			let len = arr.length
+			for (let i = 0; i < len; i++) {
+				// let exchange = false;
+				for(let j=len-1;j>i;j--){
+					if(arr[j]<arr[j-1]){
+						[arr[j-1],arr[j]] = [arr[j],arr[j-1]]						
+						exchange = true
+					}
+				}
+				// if (!exchange) return  {arr,'timer':(new Date().getTime())-start};
+				
+			}			
+			let end = new Date().getTime();//接受时间			
+			return {arr,'timer':end-start};
+		}
+		function fn2(arr){	//选择排序        排序思路：在无序区中选出最小的元素，然后将它和无序区的第一个元素交换位置。  70ms
+			let start = new Date().getTime();//起始时间
+			let len = arr.length
+			for(let i=0;i<len;i++){
+				let min = i
+				for(let j=len-1;j>i;j--){
+					if(arr[j]<arr[min]){min = j}
+				}
+				if(min !== i){[arr[i],arr[min]] = [arr[min],arr[i]]}
+			}
+			let end = new Date().getTime();//接受时间		
+			return {arr,'timer':end-start};
+		}
+		function fn3(arr){	//直接插入排序     排序思路：每次选择无序区第一个元素插入到有序区，并排序  30ms
+			let start = new Date().getTime();//起始时间
+			let len = arr.length
+			for(let i=0;i<len;i++){
+				let tmp=arr[i]
+				let j=i-1
+				// let k=0;
+				while (j >= 0 && tmp < arr[j]){					
+					arr[j + 1] = arr[j];
+					j--;
+					// k++
+				}
+				// console.log(tmp,arr[j+1],k,arr)
+				arr[j+1] = tmp
+			}
+			let end = new Date().getTime();//接受时间		
+			return {arr,'timer':end-start};
+		}
+		console.log(fn3(num))
+		
+	</script>
+</html>

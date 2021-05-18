@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+        }
+        p{
+            width:10%
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        accesskey属性：用于指定激活元素的快捷键
+        tabindex属性：用于指定元素在tab键下的次序
+        lang属性：用于指定元素内容的语言
+        dir属性：用于指定元素中内容的文本方向，属性只有ltr(默认)或rtl两种  l=>left r=>right
+     -->
+    <p class="cls" id='box' dir='rtl' style="background-color: #ccc;" accesskey="33" tabindex="2" lang="en">talnks_kktalnks_kktalnks_kktalnks_kktalnks_kktalnks_kktalnks_kk</p>
+    <p>tlanksstlanksstlanksstlanksstlanksstlanksstlanksstlankss</p>
+    <input type="text" accesskey="z" name="" id="" hidden>
+    <script>
+        const box = document.getElementsByClassName('cls')[0]
+        console.dir(box)
+    </script>
+</body>
+</html>

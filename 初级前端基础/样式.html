@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .bkg{
+            /* 
+             *  background-position 如果您仅规定了一个关键词，那么第二个值将是"center"  (x轴，y轴)
+             *  background-attachment 规定背景图像是否固定或者随着页面的其余部分滚动。
+             */
+            width: 160px;
+            height: 90px;
+            text-align: center;
+            line-height: 90px;
+            margin: 10px;
+            background-color: rosybrown;
+            background-image: url('./image/wallhaven-5w26x1.jpg');
+            background-repeat: no-repeat;
+            /* background-position: -10px; */
+            background-size: contain;
+            background-clip: content-box ;
+            background-attachment: fixed;
+        }
+        .bkg1{
+            /* 
+             *  background-position 如果您仅规定了一个关键词，那么第二个值将是"center"  (x轴，y轴)
+             *  background-attachment 规定背景图像是否固定或者随着页面的其余部分滚动。
+             */
+            width: 160px;
+            height: 90px;
+            text-align: center;
+            line-height: 90px;
+            margin: 10px;
+            background-color: rosybrown;
+            background-image: url('./image/wallhaven-5w26x1.jpg');
+            background-repeat: no-repeat;
+            /* background-position: -10px; */
+            background-size: contain;
+            background-clip: content-box ;
+            background-attachment: local;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        background 背景样式 
+            background-position 如果您仅规定了一个关键词，那么第二个值将是"center"  (x轴，y轴)
+            background-attachment 规定背景图像是否固定或者随着页面的其余部分滚动。
+    -->
+    <div style="position: relative;">
+        <div class="bkg">tlankss_kk</div>
+        <div class="bkg1" style="display: inline-block;">tlankss_kk</div>
+        <div class="bkg" style="display: inline-block;">tlankss_kk</div>
+        <div class="bkg">tlankss_kk</div>
+        <div class="bkg">tlankss_kk</div>
+        <div class="bkg">tlankss_kk</div>
+        <div class="bkg" style="display: inline-block;">tlankss_kk</div>
+    </div>
+    <!--  font 字体样式
+        font-family 字体族
+        font-size 字体大小 网页默认字体大小是16px
+        font-weight 
+            normal（默认）
+            bold（加粗）
+            bolder（相当于<strong>和<b>标签）
+            lighter （常规）
+            100 ~ 900 整百（400=normal，700=bold）
+        color
+        font-style
+            normal 文本正常显示
+            italic 文本斜体显示
+            oblique 文本倾斜显示
+    -->
+    <div>
+        <span style="font-family:'微软雅黑','黑体'">tlankss_kk</span>
+        <span style="font-size:20px">tlankss_kk</span>
+        <span style="font-weight: 900;">tlankss_kk</span>
+        <span style="color:red">tlankss_kk</span>
+        <span style="font-style: italic">tlankss_kk</span>
+    </div>
+
+    <!-- text 文本样式
+        line-height 行高
+        text-align 文本水平对齐方式
+        vertical-align 文本所在行高的垂直对齐方式
+            baseline 默认
+            sub 垂直对齐文本的下标，和<sub>标签一样的效果
+            super 垂直对齐文本的上标，和<sup>标签一样的效果
+            top 对象的顶端与所在容器的顶端对齐
+            text-top 对象的顶端与所在行文字顶端对齐
+            middle 元素对象基于基线垂直对齐
+            bottom 对象的底端与所在行的文字底部对齐
+            text-bottom 对象的底端与所在行文字的底端对齐
+        text-indent 文本缩进
+        letter-spacing 字母之间的间距
+        word-spacing 单词之间间距
+        text-transform 文本的大小写
+            capitalize 文本中的每个单词以大写字母开头。
+            uppercase 定义仅有大写字母。
+            lowercase 定义仅有小写字母。
+        text-decoration文本的装饰
+            none 默认。
+            underline 下划线。
+            overline 上划线。
+            line-through 中线。
+        word-wrap 自动换行
+    -->
+    <div>
+        <span style="line-height: 40px;">tlanks_kk1</span><br/>
+        <span style="text-align : center">tlanks_kk2</span><br/>
+        <span style="vertical-align:middle">tlanks_kk3</span><br/>
+        <span style="letter-spacing: 2em">tlanks_kk4</span><br/>
+        <span style="word-spacing:2em">tlanks_kk5</span><br/>
+        <span style="text-transform:capitalize ">tlanks_kk6</span><br/>
+        <span style="text-decoration:underline ">tlanks_kk7</span><br/>
+        <span style="word-wrap: break-word;">tlanks_kk8</span><br/>
+        <p style="text-indent:2em">tlanks_kk9</p><br/>
+    </div>
+
+    <!-- 
+        Basic   基本样式 
+    -->
+    <!-- 
+        box 盒模型样式 -->
+    <!-- 
+        样式重置
+     -->
+</body>
+</html>

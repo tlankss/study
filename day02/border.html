@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				padding: 50px;
+			}
+			.four{
+				height: 0;
+				width: 0;
+				border-color: transparent transparent #F441A5 transparent; 
+				border-width: 100px;
+				border-style: solid;
+			}
+			.dialog_box{
+				height: 40px;
+				width: 200px;
+				text-align: center;
+				font-size: 12px;
+				line-height: 40px;
+				background: #FFEB3B;
+				color: #fff;
+				position: relative;
+				margin-left: 50px;
+			}
+			.dialog_box::before{
+				content:'';
+				height: 0;
+				width: 0;
+				border: 10px solid;
+				border-color: transparent #FFEB3B transparent transparent;
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: translate(calc(-50% - 10px),50%);
+			}
+			.quadrilateral{
+				height: 100px;
+				width: 100px;
+				background:#03A9F4;
+				transform: skew(-25deg,0);
+			}
+			.pentagram{
+				height: 0;
+				width: 0;
+				border-style: solid;
+				border-color: transparent transparent red transparent;
+				border-width: 80px 30px;
+				position: relative;
+				
+			}
+			.pentagram::before{
+				content: '';
+				height: 0;
+				width: 0;
+				border-style: solid;
+				border-width: 80px 30px;
+				border-color: transparent beige transparent transparent;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transform: rotate(67deg);
+			}
+			.pentagram::after{
+				content: '';
+				height: 0;
+				width: 0;
+				border-style: solid;
+				border-width: 80px 30px;
+				border-color: transparent yellow transparent transparent;
+				position: absolute;
+				left:0;
+				top: 0;
+				transform: rotate(67deg);
+			}
+			.love-box{
+				height: 70px;
+				width: 100%;
+				margin-top: 80px;
+				position: relative;
+			}
+			.love-box div{
+				width: 100px;
+				height: 90px;
+				position: relative;				
+			}
+			.love-box div::before{
+				content: '';
+				position: absolute;
+				width: 50px;
+				  height: 90px;
+				  background: red;
+				  border-radius: 50px 45px 0  0;
+				  /* 设置旋转中心 */
+				  transform-origin: 100% 100%;
+				  transform: rotate(-45deg);
+			}
+			.love-box div::after{
+				content: '';
+				position: absolute;
+				left: -20px;
+				width: 50px;
+				  height: 90px;
+				  background: red;
+				  border-radius: 50px 45px 0  0;
+				  /* 设置旋转中心 */
+				  transform-origin: 0 100%;
+				  transform: rotate(45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="four"></div>
+		<div class="dialog_box">这是一条对话框</div>
+		<div class="quadrilateral">232</div>
+		<div class="pentagram"></div>
+		<div class="love-box">
+			<div></div>
+		</div>
+	</body>
+</html>

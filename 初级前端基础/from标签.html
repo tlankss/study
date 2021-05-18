@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        form表单是可以把浏览者输入的数据传送到服务器端，这样服务器端程序就可以处理表单传过来的数据。
+            method => 数据传送的方式  action => 浏览者输入的数据被传送到的地方
+        支持的方式  input button select textarea
+        input
+            text	单行文本输入框
+            password	密码输入框（密码显示为***)
+            radio	单选框 （checked属性用于显示选中状态）
+            checkbox	复选框（checked属性用于显示选中状态）
+            file	上传文件
+            button	普通按钮
+            reset	重置按钮（点击按钮，会触发form表单的reset事件）
+            submit	提交按钮（点击按钮，会吃饭form表单的submit事件）
+            email	专门用于输入 e-mail
+            url	专门用于输入 url
+            number	专门用于number
+            range	显示为滑动条，用于输入一定范围内的值
+            date	选取日期和时间（还包含：month、week、time、datetime、datetime-local）
+            color	选取颜色
+
+     -->
+    <form method="get" action="./action">
+        <input type="text" value="" name="inp">
+        <textarea name="txt" value=""></textarea>
+        <select name="sel" id="">
+            <option value="">第1项</option>
+            <option value="">第2项</option>
+            <option value="">第3项</option>
+            <option value="">第4项</option>
+            <option value="">第5项</option>
+            <option value="">第6项</option>
+            <option value="">第7项</option>
+            <option value="">第8项</option>
+            <option value="">第9项</option>
+            <option value="">第10项</option>
+            <option value="">第11项</option>
+            <option value="">第12项</option>
+            <option value="">第13项</option>
+            <option value="">第14项</option>
+            <option value="">第15项</option>
+            <option value="">第16项</option>
+            <option value="">第17项</option>
+            <option value="">第18项</option>
+            <option value="">第19项</option>
+            <option value="">第20项</option>
+        </select>
+        <button>确认</button>
+    </form>
+</body>
+</html>

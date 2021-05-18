@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 90%;
+            margin: 20px auto;
+        }
+        #box ul{
+            list-style: none;
+            float: left;
+            width: 24%;
+            margin: 5px;
+        }
+        #box ul img{
+            width: 100%;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+    <script type="text/javascript">
+        // var ulArr = document.querySelectorAll("ul");
+        // function createImg (count) {
+        //     for(var i = 0; i < count; i++) {
+        //         //创建图片 和 li
+        //         var img = document.createElement("img");
+        //         img.src = "美女/" + i + ".jpg";
+        //         var li = document.createElement("li");
+        //         li.appendChild(img);
+        //         //假设一个最短的ul
+        //         var minHeightUl = ulArr[0];
+        //         for (var j = 0; j < ulArr.length; j++) {
+        //             if (minHeightUl.offsetHeight > ulArr[j].offsetHeight) {
+        //                 minHeightUl = ulArr[j];
+        //             }
+        //         }
+        //         minHeightUl.appendChild(li);
+        //     }
+        // }
+        // createImg(99);
+		let string = 'http://192.168.0.44:5500/App/maintenanceManagement/moveMyApplyList.html?'
+		var reg = RegExp(/{?}/);
+		console.log(string.indexOf("?"))
+    </script>
+</body>
+</html>

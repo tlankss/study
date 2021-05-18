@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            html,body{
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, .4);
+            }
+            .enclosure{
+                height: auto;
+                width: 400px;
+                background-color: #fff;
+                padding: 5px 10px;
+            }
+            .enclosure-item{
+                height: 30px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .enclosure-item .enclosure-lf{
+                flex: 1;
+                height: 100%;
+                font-size: 14px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #333333;
+                line-height: 30px;
+            }
+            .enclosure-item .enclosure-rg{
+                height: 100%;
+                font-size: 14px;
+                line-height: 30px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #3078FF;
+            }
+            .enclosure-item .enclosure-rg a{
+                padding: 0 5px;
+            }
+            .enclosure-item .enclosure-rg a:first-child{
+                position: relative;
+            }
+            .enclosure-item .enclosure-rg a:first-child::before{
+                content: '';
+                position:absolute;
+                right: -4px;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 10px;
+                border: 1px solid #f1f1f1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="enclosure">
+            <div class="enclosure-item">
+                <div class='enclosure-lf'>协同开放、打造高效可靠的供应链体系协同开放、打造高效可靠的供应链体系.doc</div>
+                <div class='enclosure-rg'>
+                    <a href="https://cdn.shopify.com/s/files/1/1545/3617/files/SH01_User_Manaul.pdf">预览</a>
+                    <a href="https://cdn.shopify.com/s/files/1/1545/3617/files/SH01_User_Manaul.pdf" download="文件名称">下载</a>
+                </div>
+            </div>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>

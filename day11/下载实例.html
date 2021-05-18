@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <button onclick="downLoad()">下载</button>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+            function downLoad(){
+                $.ajax({
+                    type: 'get',
+                    url: 'http://s3.c2cloud.cn/hnyd-wzgl/innov/spontaneMatchOther/2021-03-06/14:18:47/0-html.txt',
+                    contentType: "application/json;charset=utf-8",
+                    responseType: 'blob',
+                    success: function (res) {
+                        const url = window.URL.createObjectURL(new Blob([res]))
+                        const link = document.createElement('a')
+                        link.style.display = 'none'
+                        link.href = url
+                        link.setAttribute('download', name)
+                        document.body.appendChild(link)
+                        link.click()
+                        $(link).remove();
+                    },
+                    error: function (err) {
+                        // console.log(err)
+                    }
+                });
+
+
+                
+            }
+        </script>
+    </body>
+</html>

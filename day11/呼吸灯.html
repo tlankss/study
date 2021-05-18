@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color:#fadaa7;
+        }
+        span{
+            display: block;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            margin: 0 20px;
+        }
+        .circular{
+            display: flex;
+        }
+        .circular span{
+            background-color: #fff;
+            animation: outLight 1s ease-in-out infinite;
+        }
+        @keyframes outLight {
+            0%{box-shadow:0 0 20px hsla(168,90%,45%,1)}
+	        100%{box-shadow:0 0 20px hsla(220,90%,45%,1)}
+        }
+        .circular span:nth-child(2){
+            animation-delay: 250ms;
+        }
+        .circular span:nth-child(3){
+            animation-delay: 500ms;
+        }
+        .circular span:nth-child(4){
+            animation-delay: 750ms;
+        }
+        .ring{
+            margin-top: 40px;
+            display: flex;
+        }
+        .ring span{
+            height: 35px;
+            width: 35px;
+            border:5px solid #fff;
+            box-sizing: border-box;
+            animation: linearAn linear 1s infinite;
+        }
+        @keyframes linearAn {
+            0%{filter: drop-shadow(0 0 5px hsla(168,90%,45%,1));}
+	        100%{ilter: drop-shadow(0 0 5px hsla(220,90%,45%,1));}
+        }
+        .ring span:nth-child(2){
+            animation-delay: 250ms;
+        }
+        .ring span:nth-child(3){
+            animation-delay: 500ms;
+        }
+        .ring span:nth-child(4){
+            animation-delay: 750ms;
+        }
+    </style>
+</head>
+<body>
+    <div class="circular">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="ring">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>

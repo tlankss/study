@@ -1,0 +1,14 @@
+<script>
+    // "."运算先执行
+    let a = {n:1},
+        b = a;
+    a.x = a = {n: 2}
+    console.log(a)  // {n: 2, x:{n:1}}      {n:2}
+    console.log(a.x) // {n:1}               undefind
+    console.log(b.x) // undefind            {n:2}
+
+    let c = {n: 1},
+        d = c;
+    c.x = c
+    console.log(d)  // {n: 1, x:{n: 1, x: {n: 1, x:...}}}
+</script>

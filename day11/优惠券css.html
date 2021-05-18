@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+         *  重点： 伪类、clip、filter->drop-shadow
+         */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:#fadaa7;
+        }
+        .coupon{
+            height: 100px;
+            width: 300px;
+            display: flex;
+            filter: drop-shadow(0 0 10px  hsla(168,90%,45%,1))
+        }
+        .coupon-left{
+            float: left;
+            height: 100%;
+            width: 100px;
+            height: 100px;
+            border-radius: 10px 0 0 10px;
+            overflow: hidden;
+            position: relative;
+            /* box-shadow: 0 0 10px  hsla(168,90%,45%,1); */
+        }
+        .coupon-left::before{
+            content: '';
+            height: 20px;
+            width:  20px;
+            border: 130px solid #fff;
+            position: absolute;
+            top: -140px;
+            right: -140px;
+            border-radius: 50%;
+            clip: rect(140px,140px,191px,40px);
+            z-index: -1;
+        }
+        .coupon-left::after{
+            content: '';
+            height: 20px;
+            width:  20px;
+            border: 130px solid #fff;
+            position: absolute;
+            bottom: -140px;
+            right: -140px;
+            border-radius: 50%;
+            clip: rect(90px,140px,140px,40px);
+            z-index: -1;
+        }
+        .coupon-right{
+            float: left;
+            height: 100%;
+            width: 200px;
+            height: 100px;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            overflow: hidden;
+            margin-left: -1px;
+        }
+        .coupon-right::before{
+            content: '';
+            height: 20px;
+            width:  20px;
+            border: 230px solid #FFF;
+            position: absolute;
+            top: -240px;
+            left: -240px;
+            border-radius: 50%;
+            clip: rect(240px,440px,291px,240px);
+            z-index: -1;
+        }
+        .coupon-right::after{
+            content: '';
+            height: 20px;
+            width:  20px;
+            border: 230px solid #FFF;
+            position: absolute;
+            bottom: -240px;
+            left: -240px;
+            border-radius: 50%;
+            clip: rect(190px,440px,240px,240px);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="coupon">
+        <div class="coupon-left">
+            TT
+        </div>
+        <div class="coupon-right">
+            <span>tlankss_kk1</span>
+            <span>tlankss_kk2</span>
+            <span>tlankss_kk3</span>
+        </div>
+    </div>
+</body>
+</html>

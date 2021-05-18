@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// const data = [
+		//   {name: 'a', age: 37, weight: 72, sex: 'male'},
+		//   {name: 'b', age: 17, weight: 64, sex: 'male'},
+		//   {name: 'c', age: 24, weight: 89, sex: 'female'},
+		//   {name: 'd', age: 66, weight: 83, sex: 'male'},
+		//   {name: 'e', age: 47, weight: 105, sex: 'male'},
+		//   {name: 'f', age: 18, weight: 61, sex: 'female'},
+		//   {name: 'g', age: 24, weight: 89, sex: 'female'}
+		// ];
+		// let a = data.reduce((t,v)=>(v.sex =='female' && (v.weightMinusAge = v.weight - v.age,t.push(v)),t),[])
+		// let b = data.reduce((t,v)=> (v.age > 30 && t.push([v.age,v.name]),t),[])
+		// let c = data.reduce((t,v,i)=>(t.push(v.name),t),[])
+		// console.log(a, b, c.concat())
+		let a = {
+		    b: {
+		        c: {
+		            d: 'd'
+		        }
+		    }
+		}
+		//'this.state.obj.a.b.c' split==> ['this','state','obj','a','b','c']
+		let keys = ['a', 'b', 'c', 'd']
+		let d = keys.reduce((current, str) => {
+		    return current === a ? {
+		        ...current
+		    } : current[str]
+		}, a)
+		console.log(d)
+	</script>
+</html>

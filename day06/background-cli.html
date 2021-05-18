@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用图片做背景的文字显示效果</title>
+	</head>
+	<style>
+		html,body{
+			margin: 0;
+			padding: 0;
+			/* background-color: #333; */
+			 /* font-family:"Times New Roman",Georgia,Serif */
+		}
+		h1{
+			font-size: 150px;
+			font-weight: 900;
+			text-transform: uppercase;
+			letter-spacing: 20px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			margin: 0;
+			background: url('https://cdn.pixabay.com/photo/2020/04/21/18/49/tropical-5074304__340.jpg') 50% 50%;
+			text-fill-color: transparent;
+			background-size: cover;
+			/* 填充颜色随父元素 */
+			-webkit-text-fill-color: transparent;
+			/* 裁剪文字区域外的部分 */
+			-webkit-background-clip: text;	
+		}
+	</style>
+	<body>
+		<h1>当然是黎先生啦</h1>
+	</body>
+</html>

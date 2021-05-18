@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制方格图</title>
+	<style type="text/css">
+		html,body,div{
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<canvas id="canvas" width="1000" height="1000"></canvas>
+	</div>
+    
+    <script type="text/javascript">
+        var canvas=document.getElementById("canvas");
+        var ctx=canvas.getContext("2d");
+        //描绘背景
+		// canvas.attr("width",$(window).get(0).innerWidth) //自己赋值宽度
+		// canvas.attr("height",$(window).get(0).innerHeight)	//自己赋值高度
+
+        var gradient=ctx.createLinearGradient(0,0,0,300);//createLinearGradient() 方法创建线性的渐变对象。
+        gradient.addColorStop(0,"#e0e0e0");
+        gradient.addColorStop(1,"#ffffff");
+        ctx.fillStyle=gradient;
+        ctx.fillRect=(0,0,canvas.width,canvas.height);
+        //描绘边框
+        var grid_cols=100;
+        var grid_rows=100;
+        var cell_height=canvas.height/grid_rows;
+        var cell_width=canvas.width/grid_cols;
+        ctx.lineWidth=1;
+        ctx.strokeStyle="#a0a0a0";
+        //结束边框描绘
+        ctx.beginPath();
+        //准备画横线
+        for(var col=0;col<=grid_cols;col++)
+		{
+			var x=col*cell_width;
+			ctx.moveTo(x,0);
+			ctx.lineTo(x,canvas.height);
+		}
+		//准备画竖线
+		for(var row=0;row<=grid_rows;row++)
+			{
+				var y=row*cell_height;
+				ctx.moveTo(0,y);
+				ctx.lineTo(canvas.width,y);
+			}
+			//完成描绘
+			ctx.stroke();
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        html,body {height: 100%;}
+
+        header,
+        footer {
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            left: 0;
+            text-align: center;
+            line-height: 40px;
+            background: #999999;
+            color: #ffffff;
+            z-index: 999;
+        }
+
+        header {
+            top: 0;
+        }
+
+        footer {
+            bottom: 0;
+        }
+        ul {
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: 40px;
+            bottom: 40px;
+            overflow: auto;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul>li {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-indent: 20px;
+            border-bottom: 1px solid #666666;
+            background: #ffffff;
+            color: #333333;
+        }
+        /* 下拉刷新的时候做 */
+        #loading{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #333333;
+            transition: all 0.5s;
+            position: absolute;
+            z-index: 1;
+            color: #ffffff;
+            background: orange;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        我是头部
+    </header>
+    <section id="con">
+        <div id="loading">加载中......</div>
+        <ul id="list"></ul>
+    </section>
+    <div id="loadEnd">已加载全部数据</div>
+    <footer>
+        我是尾部
+    </footer>
+</body>
+<script>
+	//获取数据
+	var list = document.getElementById("list");
+	function getData() {
+		let html = '';
+		for (let i = 0; i < 20; i++) {
+			html += `<li>我是第${(i + 1)}个li<span></span></li>`;
+		}
+		console.log(list.childNodes.length)
+		if(list.childNodes.length === 0){
+			list.innerHTML = html;
+		}else if(list.childNodes.length > 0){
+			let newHtml = document.createElement('div');
+			newHtml.innerHTML += html;
+			let data = [...newHtml.childNodes];
+			data.forEach(el=>{
+				list.appendChild(el)
+			})
+		}
+	 
+	}
+	//初始加载函数	
+	window.onload = () => {
+		//初始请求数据
+		getData();
+		list.addEventListener("scroll", function () {
+			//这里可以获取到ul距离屏幕顶部的距离，每次滚动都会刷新
+			let listH = list.clientHeight;
+			//所有li总高度
+			let contentH = this.childNodes.length * 41;
+			//差值	
+			let diffValue = contentH - listH;
+			if (this.scrollTop + 50 >= diffValue) {
+			   getData();
+			}
+			if(this.scrollTop === 0){
+				list.style.top = "80px";
+			    loading.style.top = "40px";
+			    //刷新数据
+			    setTimeout(()=>{
+			        loading.style.top = "0";
+			        list.style.top = "40px";
+			    },1000)
+			}
+		})
+	}
+
+
+</script>
+</html>

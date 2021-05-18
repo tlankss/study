@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽块</title>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style>
+        body{
+            background: #ccc;
+            -o-user-select: none;
+            -moz-user-select: none; /*火狐 firefox*/
+            -webkit-user-select: none; /*webkit浏览器*/
+            -ms-user-select: none; /*IE10+*/
+            -khtml-user-select :none; /*早期的浏览器*/
+            user-select: none;
+        }
+        *{margin: 0;padding: 0;}
+        .list{
+            height: 300px;
+            box-shadow: 0 0 30px 1px #fff inset;
+            position: relative;
+        }
+        .gradItem{
+            width: 130px;
+            height: 60px;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+            color: #666;
+            box-shadow: 0 0 10px 1px #fff inset;
+            box-sizing: border-box;
+        }
+        /* 定位 */
+        .gradFloat{
+            position: absolute;
+            /* 穿透当前块 */
+            pointer-events: none;
+            border: 2px solid #fff;
+        }
+        .null{
+            border: 2px dashed cyan;
+        }
+        /* 按钮 */
+        .add{
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+            padding: 5px 10px;
+            text-align: center;
+            border: 1px solid #fff;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="gradList"></div>
+</body>
+<script>
+    
+    var startIndex = null// 拖拽块位置
+    var endIndex = null// 终点块位置
+    $('.gradList').on('mousedown', '.gradItem', function(e){
+        let x = e.offsetX
+        let y = e.offsetY
+        startIndex = $(this)
+        // 定位拖拽块
+        $(this).addClass('gradFloat')
+        $('.gradFloat').css({
+            left: e.clientX-x,
+            top: e.clientY-y
+        })
+        // 新建一个占位的标签
+        var $pos = $('<div class="gradItem null"></div>').css({
+            width: $(this).width()+6,
+            height: $(this).height()+6,
+            border: '2px dashed #fff'
+        })
+        // 把占位标签放在当前点击标签的后面
+        $(this).after($pos)
+        // 在页面移动
+        $(document).mousemove(function(e){
+            var e = e||window.event
+            // 移动拖拽块
+            $('.gradFloat').css({
+                left: e.clientX-x,
+                top: e.clientY-y
+            })
+            $('.gradItem').mousemove(function(){
+                endIndex = $(this)
+            })
+        })
+        // 松开
+        $(document).mouseup(function(){
+            if(endIndex){
+                // 交换位置
+                var arr = $('.gradList').children()
+                var c = arr[startIndex.index()]
+                arr[startIndex.index()] = arr[endIndex.index()]
+                arr[endIndex.index()] = c
+                $('.gradList').html(arr)
+            }
+            
+            $(startIndex).removeClass('gradFloat')// 取消定位样式
+            $('.gradItem.null').remove()//移除占位标签
+            $('.gradItem').off('mousemove')// 取消事件
+            $(document).off('mousemove mouseup')
+            startIndex = null//需要换位的下标清空
+            endIndex = null
+        })
+    })
+
+    // 渲染标签
+    arr = [{
+        color: '#ccc'
+    },{
+        color:  'cyan'
+    },{
+        color:  'pink'
+    },{
+        color:  '#ff4040'
+    },{
+        color:  'yellow'
+    },{
+        color:  '#8ce483'
+    },{
+        color:  '#f085da'
+    }]
+    arr.map((item, index)=>{
+        $('<div class="gradItem"></div>').css({
+            background: item.color
+        }).appendTo('.gradList')
+    })
+</script>
+</html>

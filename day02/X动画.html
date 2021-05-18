@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			body{
+				display: flex;
+				height: 100%;
+				width: 100%;
+				justify-content: center;
+				align-items: center;				
+			}			
+			.menu {
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  width: 20px;
+			  height: 2px;
+			  padding: 8px 0;
+			  transform: translate(-50%, -50%);
+			  background-clip: content-box;
+			  background-color: #585247;
+			}
+			.menu::after, .menu::before {
+			  position: absolute;
+			  left: 0;
+			  display: inline-block;
+			  content: '';
+			  width: 100%;
+			  height: 2px;
+			  background-color: #585247;
+			  transition: transform 0.3s;
+			  
+			}
+			.menu::before {
+			  top: 0;
+			  
+			}
+			.menu::after {
+			  bottom: 0;
+			   
+			}
+			.menu-outer:hover .menu{
+				background-color: transparent;
+			}
+			.menu-outer:hover .menu::after{
+				top: 50%;
+				transform: translate(0,-50%) rotate(-45deg);
+				background-color: red;
+			}
+			.menu-outer:hover .menu::before{
+				top: 50%;
+				transform: translate(0,-50%) rotate(45deg);
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="menu-outer">
+		    <span class="menu"></span>
+		</div>
+	</body>
+</html>

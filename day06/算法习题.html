@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let nums = [2, 7, 5, 4]		//假设只有一对满足
+		let target = 9;
+		var twoSum = function(nums, target) {		//正常版本
+			if(nums.length<2) return;
+		    for(let i=0;i<nums.length;i++){
+		        for(let j=i+1;j<nums.length;j++){
+		            if(nums[i]+nums[j] === target){
+		               newArr.push([i,j])
+		            }
+		        }
+		    }
+		};
+		var twoSum1 = function(nums, target) {		//减法版本 方法更优 耗时内存消耗		
+			if(nums.length<2) return;
+			let tmp=[];
+		    for(let i=0;i<nums.length;i++){
+		        let dif = target - nums[i]
+				if(tmp[dif] !== undefined){
+					return [tmp[dif],i]
+				}
+				tmp[nums[i]] = i
+		    }
+		};
+		
+				
+		
+		// 输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
+		// 输出：7 -> 0 -> 8
+		// 原因：342 + 465 = 807
+		let l1 = '2 -> 4 -> 3'
+		let l2 = '5 -> 6 -> 4'
+		var addTwoNumbers = function(l1, l2) {
+		    let num1 = (l1.split(' -> ').reverse().reduce((x,y)=>x+y))-0
+		    let num2 = (l2.split(' -> ').reverse().reduce((x,y)=>x+y))-0
+			return ((String(num1+num2)).split('').reduce((x,y)=>x+" -> "+y))
+		};
+		// var addTwoNumbers1 = function(l1, l2) {
+		//   let sum = (l1.val || 0) + (l2.val || 0);
+		//   const l3 = {val: sum % 10};
+		//   let _l3 = l3;		
+		//   while ((l1 && l1.next) || (l2 && l2.next) || sum >= 10) {
+		//     l1 = l1 && l1.next || null;
+		//     l2 = l2 && l2.next || null;		
+		//     sum = sum = (sum >= 10 ? 1 : 0) + (l1 && l1.val || 0) + (l2 && l2.val || 0);		
+		//     _l3 = _l3.next = {val: sum % 10};
+		//   }		
+		//   return l3;
+		// };
+		
+		let str = 'bbbbb'
+		var lengthOfLongestSubstring = function(s) {
+		    let maxNum=0;
+		    for(let i=0;i<s.length;i++){
+				if(s.indexOf(s[i],i+1) !== -1){
+					if(s.indexOf(s[i],i+1)-i > maxNum){
+						maxNum = s.indexOf(s[i],i+1)
+					}
+				}
+			}
+			return maxNum
+		};
+		lengthOfLongestSubstring(str)
+		
+	</script>
+</html>

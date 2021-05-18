@@ -1,0 +1,59 @@
+<script>
+    // var i = 5;
+    // function fn(i) {
+    //     return function (n) {
+    //         console.log(n + (++i));
+    //     }
+    // }
+    // var f = fn(1);
+    // f(2); // 4
+    // fn(3)(4); // 8
+    // fn(5)(6); // 12
+    // f(7); // 7+(++2) => 10
+    // console.log(i); // 5
+
+    // let x = 5;
+    // function fn(x) {
+    //     return function(y) {
+    //         console.log(y + (++x));
+    //     }
+    // }
+    // let f = fn(6);
+    // f(7); // 7+(++6) => 14
+    // fn(8)(9); // 18
+    // f(10); // 10+(++7) => 18
+    // console.log(x); // 5 
+
+    // let a=0,
+    //     b=0;
+    // function A(a){
+    //     //  未定义所有直接给window.A 赋值了函数, 如果使用let/const/var 就只会执行外部的输出1
+    //     A=function(b){
+    //         console.log('输出2',a,b)
+    //     };
+    //     console.log('输出1',a++)
+    // }
+    // A(1); // 输出1 2
+    // A(2); // 输出2 2 2
+
+    // var n=0; 
+    // function a(){
+    //     var n=10; 
+    //     function b(){
+    //         n++; 
+    //         console.log(n);
+    //     }
+    //     b();
+    //     return b; 
+    // }
+    // var c=a(); // 11
+    // c(); // 12
+    // console.log(n); // 0
+
+    var test = (function(i){
+        return function(){
+            alert(i*=2);
+        }
+    })(2);
+    test(5); // 4
+</script>

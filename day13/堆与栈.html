@@ -1,0 +1,60 @@
+<script>
+    /*        
+        栈(stack): 自动分配的内存空间，它由系统自动释放。
+                基本数据类型(null、undefined、boolean、number、string)，可直接访问
+                基于ES6中的let/const形成的块作用域也是栈内存
+                创建的变量也存栈里面
+
+        堆(heap): 动态分配的内存空间，大小不定也不会自动释放。
+                引用类型(object、array、function),实际保存的是指针，通过指针在从堆内存中获取数据
+                创建函数和创建对象，就是开辟一个堆内存，把代码字符串或者键值对存储到堆内存中的
+                堆的申请和释放工作由程序员控制，容易产生内存泄漏；
+                
+    */
+   /*
+        深拷贝: 深拷贝创建一个新对象，将原对象的各个属性的值拷贝过来。深拷贝要把复制对象所引用的对象都复制一遍。
+        浅拷贝：浅拷贝只复制指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存。
+    **/
+    // 浅拷贝    
+    var obj1 = {name: 'tlankss',age: 12},
+        arr1 = ['tlankss', 12],
+        num1 = 12,
+        str1 = 'tlankss'
+    let _obj1 = obj1
+    _obj1.name = 'kk'
+    let _arr1 = arr1
+    arr1.push('sex')
+    let _num1 = num1
+    _num1 = 13
+    let _str1 = str1
+    str1 = 'tlankss_kk'
+    // 深拷贝
+    // 1.序列化反序列化法
+    let _obj2 = JSON.parse(JSON.stringify(obj1))
+    _obj2.name = 'kk2'
+    // 2.迭代递归法
+    let _obj3 = {}
+    for (let key in obj1){
+        _obj3[key] = obj1[key]
+    }
+    _obj3.name = 'kk3'
+    console.log(_obj1, obj1) // {name: "kk", age: 12} {name: "kk", age: 12}
+    console.log(_num1, num1) // 13 12
+    console.log(_arr1, arr1) // ["tlankss", 12, "sex"] (3) ["tlankss", 12, "sex"]
+    console.log(_str1, str1) // tlankss tlankss_kk
+    console.log(_str1, str1) // tlankss tlankss_kk
+    console.log(_obj2, obj1) // {name: "kk2", age: 12} {name: "kk", age: 12}
+    console.log(_obj3, obj1) // {name: "kk3", age: 12} {name: "kk", age: 12}
+    /*
+        call、bind、apply
+        它们都是function对象自带的方法，改变函数内部this的指向
+            apply 、 call 、bind 三者都可以利用后续参数传参；
+
+            apply 、 call 、bind 三者第一个参数都是 this 要指向的对象，也就是想指定的上下文；
+            对于 apply、call 二者而言，作用完全一样，只是接受 参数 的方式不太一样。call 是把参数按顺序传递进去，而 apply 则是把参数放在数组 里
+            
+            bind 是返回对应 函数，便于稍后调用；apply 、call 则是立即调用 。
+        https://www.cnblogs.com/zhg277245485/p/6559475.html
+    */
+    console.dir(new Function())
+</script>

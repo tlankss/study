@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		span{
+			position: absolute;
+			top: 150px;
+			left: 0;
+			display: block;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			background-color: #ccc;
+			opacity: 0.5;   /* 1 完全不同命   0完全透明    取值范围：0-1  */
+		}
+		#left{
+			text-align: left;
+		}
+		#right{
+			text-align: right;
+			margin-left: 750px;
+		}
+		#picNav{
+			position: absolute;
+			top: 310px;
+			left: 300px;
+		}
+		#picNav li{
+			list-style: none;
+			width: 20px;
+			height: 20px;
+			float: left;
+			margin-right: 10px;
+			text-align: center;
+			line-height: 20px;
+			background-color: #ccc;
+		}
+		#picNav .active{
+			background-color: red;
+		}
+	</style>
+	<img src="https://cdn.pixabay.com/photo/2020/04/28/12/54/iceland-5104372_960_720.jpg" alt="" id="pic">
+	<span id="left">&lt;</span>
+	<span id="right">&gt;</span>
+	<ul id="picNav">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	<script>
+	//需求：每隔两秒钟，实现一次图片的自动更换（用定时器）；
+		var arr=["https://cdn.pixabay.com/photo/2020/04/28/12/54/iceland-5104372_960_720.jpg","https://cdn.pixabay.com/photo/2020/04/21/02/32/buildings-5070537_960_720.jpg","https://cdn.pixabay.com/photo/2020/04/17/14/16/mountains-5055387_960_720.jpg","https://cdn.pixabay.com/photo/2020/04/21/02/32/buildings-5070537_960_720.jpg","https://cdn.pixabay.com/photo/2020/04/17/14/16/mountains-5055387_960_720.jpg"];
+	//需要一个数字，在0-4之间循环
+		var index=0;
+		var pic=document.getElementById("pic");
+		var picleft=document.getElementById("left");
+		var picright=document.getElementById("right");	
+		var picNav=document.getElementById("picNav");
+		var picNavLis=picNav.getElementsByTagName("li");
+	//如果使用定时器，但是发现不生效，
+	//1.先看是否报错；2.检查函数是否运行；3.检查相关变量是否发生变化；
+	
+	
+	                //板块：图标的自动滚动
+		function change(){
+			if (index==arr.length-1) {
+				index=0;
+			}else{
+				index++;
+			}
+			pic.src=arr[index];
+	        for(var n=0;n<picNavLis.length;n++){
+				picNavLis[n].className="";
+			}
+			picNavLis[index].className="active";
+		}
+		//setTimeout(change,2000);
+		//需求：当鼠标放入图片时，定时器终止，当鼠标离开图片时，定时器生效；
+		var t=setInterval(change,2000);		
+		pic.onmouseenter=function(){clearTimeout(t)}
+		pic.onmouseleave=function(){t=setTimeout(change,2000)}
+	
+	
+		//左右按钮的添加
+		//需求：当鼠标放入按钮时，定时器终止，当鼠标离开按钮时，定时器生效；
+		picleft.onmouseenter=function(){
+			clearTimeout(t);
+		}
+		picleft.onmouseleave=function(){
+			t=setTimeout(change,2000);
+		}
+		picright.onmouseenter=function(){
+			clearTimeout(t);
+		}
+		picright.onmouseleave=function(){
+			t=setTimeout(change,2000);
+		}
+	//需求：左右按钮功能实现
+		picleft.onclick=function(){
+			if (index==0) {
+				index=arr.length-1;
+			}else{
+				index--;
+			}
+	//index=index==4? 0 : index++;     这也是两种写法
+	//index=index%5+1;
+			pic.src=arr[index];
+	                for(var n=0;n<picNavLis.length;n++){
+				picNavLis[n].className="";
+			}
+			picNavLis[index].className="active";
+		}
+		picright.onclick=change;//直接调用函数
+		// picright.onclick=function(){
+		// 	if (index==arr.length-1) {
+		// 		index=0;
+		// 	}else{
+		// 		index++;
+		// 	}
+		// 	pic.src=arr[index];
+		// }
+	
+	        
+	            //导航按钮的功能
+	//需求：当鼠标经过每个li时，图片换成对应的图片；
+		for(var n=0;n<picNavLis.length;n++){
+			picNavLis[n].index=n;
+			picNavLis[n].onmouseenter=function(){
+				for(var j=0;j<picNavLis.length;j++){
+					picNavLis[j].className="";
+				}
+				this.className="active";
+	                        index=this.index;//为了让图片和自动轮播相对应
+				pic.src=arr[index];
+			}
+		}
+	//需求：当鼠标放入li时，定时器终止，当鼠标离开li时，定时器生效；
+		picNav.onmouseenter=function(){
+			clearTimeout(t);
+		}
+		picNav.onmouseleave=function(){
+			t=setTimeout(change,2000);
+		}
+	</script>
+
+</html>

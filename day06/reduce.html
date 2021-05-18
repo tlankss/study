@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*定义：
+			对数组中的每个元素执行一个自定义的累计器，将其结果汇总为单个返回值
+			形式：array.reduce((t, v, i, a) => {}, initValue)
+			参数			
+			callback：回调函数(必选)
+			initValue：初始值(可选)
+
+			回调函数的参数			
+			total(t)：累计器完成计算的返回值(必选)
+			value(v)：当前元素(必选)
+			index(i)：当前元素的索引(可选)
+			array(a)：当前元素所属的数组对象(可选)
+			
+			过程			
+			以t作为累计结果的初始值，不设置t则以数组第一个元素为初始值
+			开始遍历，使用累计器处理v，将v的映射结果累计到t上，结束此次循环，返回t
+			进入下一次循环，重复上述操作，直至数组最后一个元素
+			结束遍历，返回最终的t
+		*/
+	    const arr = [3, 5, 1, 4, 2];
+	    const scores = [
+			{ score: 90, subject: "chinese", weight: 0.5 },
+			{ score: 95, subject: "math", weight: 0.3 },
+			{ score: 85, subject: "english", weight: 0.2 }
+	    ];
+	    //累加累乘
+	    const a = arr.reduce((t, v) => t + v,0); //15	  
+	    const b = arr.reduce((t, v) => t * v, 1);  //120
+	    // 权重求和	   
+	    const result = scores.reduce((t, v) =>t + v.score * v.weight, 0); // 90.5  t=>0  45  73.5  90.5
+		// 替代reverse
+		const c = arr.reduceRight((t,v)=>(t.push(v),t),[]) //[2, 4, 1, 5, 3]  return t(为了保持[])   
+		//代替map
+		const d = arr.reduce((t,v)=>[...t,v*2],[]) //[6, 10, 2, 8, 4]
+		//代替filter
+		const e = arr.reduce((t,v)=> v>2?[...t,v]:	t,[]) // [3, 5, 4]
+		//代替some
+		const f = scores.reduce((t,v)=> t || v.score > 90,false) // 至少一个在90以上
+		//代替every
+		const g = scores.reduce((t,v)=> t && v.score > 90,true) // 全部在90以上
+		//数组分割
+		function Chunk(arr = [], size = 1) {
+		    return arr.length ? arr.reduce((t, v) => (t[t.length - 1].length === size ? t.push([v]) : t[t.length - 1].push(v), t), [[]]) : [];
+		}
+		const h = Chunk(arr,2) //[[3,5],[1,4],[2]]
+		//数组过滤
+		const arr2 = [2, 3, 6]
+		function Difference(arr=[],oldarr=[]){
+			return arr.reduce((t,v)=>(!oldarr.includes(v) ? t.push(v) : t,t),[]) //或=> (!oldarr.includes(v) && t.push(v),t)
+		}
+		const i = Difference(arr,arr2) //[5, 1, 4]
+		//数组填充
+		function Fill(arr=[],val='',start=0,end=arr.length){
+			if(start<0 || end<start || end>arr.length) return arr;
+			return [
+				...arr.slice(0,start),
+				...arr.slice(start,end).reduce((t,v)=>(t.push(val || v), t ),[]),
+				...arr.slice(end,arr.length)
+			]
+		}
+		let j = Fill(arr, "aaa", 2, 5); // [3, 5, "aaa", "aaa", "aaa"]
+		//数组扁平化
+		const arrFlat = [0, 1, [2, 3], [4, 5, [6, 7]], [8, [9, 10, [11, 12]]]];
+		function Flat(arr=[]){
+			return arr.reduce((t,v)=>(t.concat(Array.isArray(v) ? Flat(v) : v)),[])
+		}
+		let k = Flat(arrFlat) //[1,2,3,4,5,6,7,8,9]
+		//数组去重
+		const arrUniq = [2, 1, 0, 3, 2, 1, 2];
+		let l = arrUniq.reduce((t,v)=>t.includes(v)?t:[...t,v],[])
+		// 数组最大最小值
+		let maxNum = arr.reduce((t,v)=>(t>v?t:v)) //5
+		let minNum = arr.reduce((t,v)=>(t<v?t:v)) //1
+		//数组成员个数统计
+		let m = arr.reduce((t,v)=>(t[v]=(t[v] || 0)+1,t),{}) //{1: 1, 2: 1, 3: 1, 4: 1, 5: 1}
+		//数组成员位置记录
+		function Position(arr=[],val){
+			return arr.reduce((t,v,i)=>( val==v ? t.push(i):t,t),[])
+		}
+		let n = Position(arr,4) //[3]
+		//数组成员特性分组
+		let arrGroup=[
+			{ area: "GZ", name: "YZW", age: 27 },
+			{ area: "GZ", name: "TYJ", age: 25 },
+			{ area: "SZ", name: "AAA", age: 23 },
+			{ area: "FS", name: "BBB", age: 21 },
+			{ area: "SZ", name: "CCC", age: 19 }
+		]
+		function Group(arr=[],key){
+			return key ? arr.reduce((t,v)=>(!t[v[key]] && (t[v[key]]=[]),t[v[key]].push(v),t),{}):{}
+		}
+		let o = Group(arrGroup,'area')
+		//数组成员所含关键字统计
+		const textKeyWord = [
+		    "今天天气真好，我想出去钓鱼",
+		    "我一边看电视，一边写作业",
+		    "小明喜欢同桌的小红，又喜欢后桌的小君，真TM花心",
+		    "最近上班喜欢摸鱼的人实在太多了，代码不好好写，在想入非非"
+		];
+		const keys = ["偷懒", "喜欢", "睡觉", "摸鱼", "真好", "一边", "明天"];
+		function KeyWord(arr=[],keys){
+			return keys? keys.reduce((t,v)=>((arr.some(res=>res.includes(v)) && t.push(v)),t),[]):[]
+		}
+		let p = KeyWord(textKeyWord, keys); // ["喜欢", "摸鱼", "真好", "一边"]
+		// 字符串翻转
+		let name = '我的名字Tlankss'
+		let q = name.split('').reduce((t,v)=>(t = v.concat(t),t))
+		console.log(q)
+		// 数字千分化
+		function ThousandNum(num=0){
+			const str = (+num).toString().split(".");
+			const int = nums => nums.split("").reverse().reduceRight((t, v, i) => t + (i % 3 ? v : `${v},`), "").replace(/^,|,$/g, "");
+			const dec = nums => nums.split("").reduce((t, v, i) => t + ((i + 1) % 3 ? v : `${v},`), "").replace(/^,|,$/g, "");
+			return str.length > 1 ? `${int(str[0])}.${dec(str[1])}` : int(str[0]);
+		}
+		ThousandNum(1234); // "1,234"
+		ThousandNum(1234.00); // "1,234"
+		ThousandNum(0.1234); // "0.123,4"
+		ThousandNum(1234.5678); // "1,234.567,8"
+	</script>
+</html>

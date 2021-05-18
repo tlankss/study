@@ -1,0 +1,65 @@
+<script>    
+    /*
+        只有挨近var的 a被声明,b不会被声明
+    
+       var a = undefined  // b未声明 
+       b=10 a=10
+       window.b = 10
+    */
+    // var c=30
+    // var a=b=10
+    // console.log(window.b)
+
+    
+    // function sum(){
+    //     var a = 1
+    // }
+    // sum()
+    // console.log(a)
+
+
+    // console.log(a, b) // undefined undefined
+    // var a =12, b ='林一一'
+    // function foo(){
+    //     console.log(a, b) // undefined  林一一
+    //     var a = b =13
+    //     console.log(a, b) // 13 13
+    // }
+    // foo()
+    // console.log(a, b) // 12 13
+
+    // print()
+    // function print(){
+    //     console.log('林一一')
+    // }
+    // print()
+
+
+    // var y = 1
+    // if(function f(){}){ 
+    //     console.log(typeof f)  // undefined
+    //     y = y + typeof f
+    // }
+    // console.log(y)
+
+    // console.log(print())    // == window.print()自带方法 所以不打印林一一
+    // if(true){
+    //     function print() {
+    //         console.log('林一一')
+    //     }
+    // }
+    // console.log(print())
+
+    /*
+        经典题目
+        循环点击事件
+    */
+   var num = [] 
+    for(var i=0; i<5; i++){
+        // num.push(i) [0,1,2,3,4]
+        (()=>{
+            console.log(i)
+        })()
+    }
+    console.log(num)
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				height: 100%;
+				width: 100%;
+			}
+			body{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			div.content{
+				height: 100px;
+				width: 200px;
+				background-color: #ccc;
+				line-height: 100px;
+				text-align: center;
+				position: relative;
+				transition: all ease .4s;
+			}
+			div.content::after{
+				content: '隐藏内容';
+				height: 100%;
+				width: 100%;				
+				position: absolute;
+				top: 0;
+				left: 0;
+				line-height: 150px;				
+				z-index: -1;
+			}
+			div.content::before{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;				
+				background: linear-gradient(to left, #333, #333) left top no-repeat, 
+							linear-gradient(to bottom, yellow, yellow) left top no-repeat, 
+							linear-gradient(to left, #00FF87, #00FF87) right top no-repeat,
+							linear-gradient(to bottom, #f00, #f00) right top no-repeat, 
+							linear-gradient(to left, blue, blue) left bottom no-repeat,
+							linear-gradient(to bottom,#645, #645) left bottom no-repeat,
+							linear-gradient(to left, #991, #991) right bottom no-repeat,
+							linear-gradient(to left, #181, #181) right bottom no-repeat;
+				background-size: 1px 0%, 0% 1px, 1px 0%, 0% 1px; /* 两个值: 第一个值指定图片的宽度，第二个值指定图片的高度 */
+				transition: all ease-in-out .5s;
+			}
+			div.content:hover{
+				background-color: rgba(33,33,33,0);
+				line-height: 75px;
+			}
+			div.content:hover::before{
+				background-size: 2px 0%, 100% 2px,2px 100%,0% 0%,0% 0%,2px 100%;
+				/* background-size: 1px 15%, 15% 1px, 1px 15%, 15% 1px; */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">内容</div>
+	</body>
+</html>

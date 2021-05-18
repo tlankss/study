@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body {height: 100%;}
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background-image: -webkit-radial-gradient(center top, circle farthest-corner, #FFFFFF 0%, #D8DFE9 100%);
+				background-image: radial-gradient(circle farthest-corner at center top, #FFFFFF 0%, #D8DFE9 100%);
+				overflow: hidden;
+			}
+			.btn-box{
+				height:40px;
+				width: 150px;
+				/* background-color: #00DDCC; */
+				line-height: 40px;
+				text-align: center;
+				border-radius: 4px;
+				position: relative;
+			}
+			.btn-box{
+				height: 400px;
+				width: 400px;
+				background-color: cadetblue;
+				border-radius: 10px;
+			}
+			button:focus{outline:0;}
+			button{
+				border: none;
+				height: 30px;
+				width: 120px;
+				border-radius: 15px;
+				position: relative;
+				transition: 3s ease-in-out;
+			}
+			button::before{
+				content: "点击提交";
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				color: #00DDCC;
+				line-height: 30px;
+				text-align: center;
+			}
+			
+			button:hover{				
+				animation: key 2s;
+			}			
+			button:hover::before{
+				content: '';
+			}
+			@keyframes key{
+				40%{
+					width: 30px;
+				}
+				80%{
+					transform: translateY(30px);
+				}
+				100%{
+					
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="btn-box">
+			<button></button>
+		</div>
+	</body>
+</html>

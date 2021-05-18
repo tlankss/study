@@ -1,0 +1,25 @@
+<script>
+    // function * gen(){
+    //     console.log('执行')
+    // }
+    // setTimeout(()=>{
+    //     console.log(gen().next())
+    // },2000)
+
+
+    function* foo(x) {
+        var y = 2 * (yield (x + 1));
+        var z = yield (y / 3);
+        console.log(x,y,z)
+        return (x + y + z);
+    }
+
+    var b = foo(5);
+    console.log(b.next()) // { value:6, done:false }
+    console.log(b.next(3))  // { value:2, done:false }
+    console.log(b.next(9))  // { value:20, done:false }
+     
+     // { value:8, done:false }
+     // { value:42, done:true }
+
+</script>

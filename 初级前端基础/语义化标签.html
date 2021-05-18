@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            
+            padding: 0;
+            margin: 0;
+        }
+        html, body{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        header, footer{
+            height: 200px !important;
+            width: 100%;
+            background-color: #999;
+        }
+        footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main{
+            flex: auto;
+            width: 100%;
+            background-color: red;
+            overflow: hidden;
+            display: flex;
+        }
+        main ol{
+            width: 100px;
+            height: 100%;
+        }
+        main article{
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>头部</header>
+    <main>
+        <aside>
+            <ol>
+                <li>li1</li>
+                <li>li2</li>
+                <li>li3</li>
+                <li>li4</li>
+                <li>li5</li>
+                <li>li6</li>
+                <li>li7</li>
+                <li>li8</li>
+                <li>li9</li>
+                <li>li10</li>
+            </ol>
+        </aside>
+        <article>
+            盒子div
+            网页头部header，html5新增语义化标签，定义网页的头部，主要用于布局，分割页面的结构
+            底部信息footer，html5新增语义化标签，定义网页的底部，主要用于布局，分割页面的结构
+            导航nav，html5新增语义化标签，定义一个导航，主要用于布局，分割页面的结构
+            文章article，html5新增语义化标签，定义一篇文章，主要用于布局，分割页面的结构
+            侧边栏aside，语义化标签，定义主题内容外的信息，主要用于布局，分割页面的结构。
+        </article>
+    </main>
+    <footer>
+        <nav>1导航</nav>
+        <nav>2导航</nav>
+        <nav>3导航</nav>
+        <nav>4导航</nav>
+        <nav>5导航</nav>
+    </footer>
+</body>
+</html>

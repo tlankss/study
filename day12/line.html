@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .box{
+                width: 100%;
+                height: 200px;
+            }
+            .lineTxt{
+                border: 1px solid #333;
+                position: relative;
+            }
+            .lineTxt::before{
+                content: '基础信息';
+                height: 35px;
+                line-height: 35px;
+                position: absolute;
+                left: 30px;
+                top: 0;
+                padding: 0 10px;
+                background-color: #fff;
+                transform: translate(0, -50%);
+            }
+            ul{
+                display: flex;
+                flex-wrap: wrap;
+            }
+        </style>
+        <script>
+            console.log(1)
+            debugger
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="box lineTxt">
+            3
+        </div>
+        <script>
+            console.log(2)
+            debugger
+        </script>
+    </body>
+    <script>
+        console.log(3)
+        debugger
+    </script>
+</html>

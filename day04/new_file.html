@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function testFn(sum){
+			return 	{
+				add:function(){
+					return ++sum
+				}
+			}
+		}
+		let obj = testFn(5)
+		console.log(obj.add()) //6
+		console.log(obj.add()) //7
+		console.log(obj.add()) //8
+	</script>
+</html>

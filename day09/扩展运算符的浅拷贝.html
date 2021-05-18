@@ -1,0 +1,10 @@
+<script>
+    let obj1 = {name:"Kobe",address:{x:100,y:100}}
+    let obj2 = {...obj1}
+    console.log([...[1,[2,[3]]]])
+    // obj1.address.x=200;
+    // obj1.name="wade";
+    // console.log(obj2)   //{name:"Kobe",address:{x:200,y:100}}
+    // ... 实现的是对象第一层的深拷贝，后面的只是拷贝的引用值
+
+</script>

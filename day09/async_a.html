@@ -1,0 +1,44 @@
+<script>
+    // 有三个人 每人要吃一个苹果
+let peopleList = ['大地瓜', '虎皮猫', '小不点']
+
+// 食物列表初始值为空
+let foodList = [];
+
+// 获取食物信息
+function getFood() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('苹果')
+        }, 1000)
+    })
+}
+
+// 用一个h函数作为 async的载体
+async function h() {
+    //根据人物列表循环获取食物， 每次获取一个苹果    
+    for (let i = 0; i < peopleList.length; i++) {
+        let food = await getFood()
+        foodList.push(food)
+    }
+    // 打印食物列表  放到h函数里
+    console.log(foodList) // ['苹果', '苹果', '苹果']
+}
+h()
+
+
+const doSomethingAsync = () => {
+  return new Promise(resolve => {
+      console.log(99)
+      setTimeout(() => resolve('做些事情'), 3000)
+  })
+}
+
+const doSomething = async () => {
+  console.log(await doSomethingAsync())
+}
+
+console.log('之前')
+doSomething()
+console.log('之后')
+</script>

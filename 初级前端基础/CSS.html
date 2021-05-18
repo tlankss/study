@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        CSS代码语法
+            CSS全称为层叠样式表(Cascading Style Sheets)，它主要是用于定义HTML内容在浏览器内的显示样式，如文字大小、颜色、字体加粗等。
+            css代码通常存放在<style></style>标签内
+            css 样式由选择符和声明组成，而声明又由属性和值组成
+            选择符{属性:值}
+            选择符：又称选择器，指明网页中要应用样式规则的元素
+
+        CSS 放置位置
+            行内样式，不建议使用
+            内联式样式表
+            外联样式表
+
+        CSS的继承
+            CSS的某些样式是具有继承性的，继承是一种规则，它允许样式不仅应用于某个特定html标签元素，而且应用于其后代。
+                不可继承样式：display、margin、border、padding、background、height、
+                            min-height、max-height、width、min-width、max-width、overflow、
+                            position、left、right、top、bottom、z-index、float、clear
+                可以继承的样式：letter-spacing、word-spacing、white-space、line-height、
+                        color、font、font-family、font-size、font-style、font-variant、font-weight、
+                        text-decoration、text-transform、direction、visibility、cursor
+        选择器的种类
+            标签选择器:通过标签的名字，修改css样式
+            通配符选择器:选择页面中所有的元素             p {color:#333}
+            属性选择器                                  [title=W3School] {color:#333}
+            后代选择器:选择某个父元素下面所有的元素        div p {color:#333}
+            一级子元素选则器:选择某个父元素的直接子元素，后代选择器是选择父元素的所有子孙元素，一级子元素原则器只选择第一级子元素，不会再向下查找元素  
+                div>p {color:#333}
+                div * {color:#333}
+            id选择器：通过id查找页面中唯一的标签           #kk {color:#333}
+            class选择器:通过特定的class（类）来查找页面中对应的标签，以 .class名称  .kk {color:#333}
+            伪类选择器::hover鼠标移入某个元素;:before在某个元素的前面插入内容;:after在某个元素的后面插入内容
+                div::hover/before {}
+            群组选择器:可以对多个不同的选择器设置相同的样式 div,p {color:#333}
+
+        选择器的优先级
+            当有不同的选择器对同一个对象进行样式指定时，并且两个选择器有相同的属性被赋予不同的值时。
+            通过测算那个选择器的权重值最高，应用哪一个选择器的样式
+            权重计算方式:
+                标签选择器：1
+                class选择器：10
+                id选择器：100
+                行内样式：1000
+                !important 最高级别，提高样式权重，拥有最高级别
+
+     -->
+</body>
+</html>

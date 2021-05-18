@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>nth-child练习</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        ul{
+            height: auto;
+            width: 400px;
+        }
+        li{
+            height: 10px;
+            width: 100%;
+        }
+        /* 偶数 */
+        li:nth-child(even){
+            background-color: red;
+        } 
+
+        /* 单数 */
+        li:nth-child(odd){
+            background-color: green;
+        }
+        /* 两个nth-child的差值的li就是黄色 */
+        li:nth-child(n+7):nth-child(-n+8){
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    
+</script>
+
+</html>
