@@ -1,0 +1,43 @@
+<script>
+    /*
+        new 操作符究竟做了什么
+            new实例构造函数，
+
+        
+    */
+    function Test(name) {
+        this.name = name
+    }
+    Test.prototype.sayName = function () {
+        console.log(this.name)
+    }
+    const t = new Test('yck')
+    console.log(t.name) // 'yck'
+    console.dir(t)
+    t.sayName() // 'yck'
+
+    /*
+        new做了什么事情
+        1.new操作符返回一个对象，所以需要一个对象
+        2.这个对象，也就是构造函数中的 this，可以访问到挂载在 this 上的任意属性
+        3.这个对象可以访问到构造函数原型上的属性，所以需要将对象与构造函数链接起来
+        4.返回原始值需要忽略，返回对象需要正常处理
+
+
+        补充 
+        1.Object.setPrototypeOf()，为现有对象设置原型，返回一个新对象接收两个参数：第一个是现有对象，第二是原型对象。
+    **/
+    function myNew(Con, ...args) { // Con传入的构造函数
+        const obj = {}
+        Object.setPrototypeOf(obj, Con.prototype)
+        const result = Con.apply(obj,args)
+        return result instanceof Object ? result : obj
+
+        // let obj = Object.create(Con.prototype) 
+        // Con.apply(obj,args)
+        // return obj
+    }
+
+    let kk = myNew('kk',{a:1})
+    console.log(kk)
+</script>

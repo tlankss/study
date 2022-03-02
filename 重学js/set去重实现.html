@@ -15,7 +15,7 @@
     //         ages.push(arrData[i].age)
     //     } 
     // }
-    
+
     // function Set1(arr) {
     //     var items = {};
     //     // 构造函数
@@ -122,9 +122,9 @@
     // assert(false,'错误错误')
     // isDef(0)
     function createIterator(items) {
-        var i = 0;        
+        var i = 0;
         return { // 返回一个迭代器对象
-            next: function() { // 迭代器对象一定有个next()方法
+            next: function () { // 迭代器对象一定有个next()方法
                 console.log('调用到了createIterator next()')
                 var done = (i >= items.length);
                 var value = !done ? items[i++] : undefined;
@@ -137,7 +137,7 @@
     }
     var colors = ["red", "green", "blue"];
     var iterator = createIterator(colors);
-    while(!iterator.next().done){
+    while (!iterator.next().done) {
         console.log(iterator.next().value);
     }
 </script>

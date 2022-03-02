@@ -1,0 +1,27 @@
+<script>
+    /*
+        递归实现一个pow
+    */
+    function myPow(x,n){
+        return n === 1 ? x: (x * myPow(x,--n))
+    }
+    console.log(myPow(3,3));
+    function add(num){
+        return num === 1 ? num : (num + add((--num)))
+    }
+    console.log(add(4));
+    function fib(num){
+        return num <= 1 ? num : (fib(num-1)+fib(num-2))
+    }
+    function fib2(num){
+        let a = 1,
+            b = 1
+        for(let i=2; i < num; ++i){
+            let c= a+b
+            a=b
+            b=c
+        }
+        return b
+    }
+    console.log(fib2(77));
+</script>

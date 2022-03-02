@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="(item,index) in arr">{{item}}</div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            arr:[1,2,3]
+        },
+        methods: {
+            
+        },
+        mounted() {
+        //   setTimeout(()=>{
+        //       this.arr[0] = 3  
+        //       alert('发生改变')
+        //   },1000)
+
+            this.arr.pop();
+            setTimeout(()=>{
+                this.arr[2] = 4;
+            },1000)
+        },
+    })
+</script>
+
+</html>

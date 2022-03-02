@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .cell{
+            width: 100%;
+            height: auto;
+            padding: 5px 10px;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+        .cell span{
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .cell span.cell-l{
+            width: 30vw;
+        }
+        .cell span.cell-r{
+            width: 70vw;
+        }
+    </style>
+</head>
+<body>
+    <p>标题</p>
+    <div class="cell">
+        <span class="cell-l">右侧信息右侧信息右侧信息</span>
+        <span class="cell-r">左侧信息左侧信息左侧信息</span>
+    </div>
+</body>
+</html>

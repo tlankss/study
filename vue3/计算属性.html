@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app"></div>
+    <template id="my-app">
+        <table>
+            <thead>
+                <tr>
+                    <td>书名</td>
+                    <td>价格</td>
+                    <td>数量</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,ind) in dataList" :key="item.price">
+                    <td>{{item.name}}</td>
+                    <td>
+                        <button @click='minus(ind)'>-</button>{{item.count}}<button @click='add(ind)'>+</button>
+                    </td>
+                    <td>{{item.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>总价: {{totalPrice}}</p>
+    </template>
+    <script>
+        var appInfo = {
+            template: '#my-app',
+            data() {
+                return {
+                    dataList: [{
+                            name: '书1',
+                            count: 1,
+                            price: 2
+                        },
+                        {
+                            name: '书2',
+                            count: 1,
+                            price: 4
+                        },
+                        {
+                            name: '书3',
+                            count: 1,
+                            price: 6
+                        },
+                        {
+                            name: '书4',
+                            count: 1,
+                            price: 8
+                        },
+                    ]
+                }
+            },
+            computed: {
+                totalPrice(){
+                    return this.dataList.reduce((t,v) => t+=v.count*v.price,0)
+                },
+                fltList(){
+                    
+                }
+            },
+            methods: {
+                add(ind) {
+                    this.dataList[ind].count++
+                },
+                minus(ind) {
+                    if (this.dataList[ind].count < 2) return
+                    this.dataList[ind].count--
+                }
+            }
+        }
+
+        Vue.createApp(appInfo).mount('#app')
+    </script>
+</body>
+
+</html>

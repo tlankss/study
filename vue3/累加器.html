@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ys{
+            height: 200px;
+            width: 100%;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="ys">
+        <div class="num">0</div>
+        <button class="add">+</button>
+        <button class="reduce">-</button>
+    </div>
+    <script>
+        let num = 0
+        const add = document.getElementsByClassName('add')[0],
+            reduce = document.getElementsByClassName('reduce')[0],
+            numdom = document.getElementsByClassName('num')[0]
+            console.log(add,reduce);
+            add.addEventListener('click',function(){
+                num++
+                numdom.innerHTML = num
+            })
+            reduce.addEventListener('click',function(){
+                num--
+                numdom.innerHTML = num
+            })
+    </script>
+
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app"></div>
+    <template id="txt">
+        <div>
+            <div>{{count}}</div>
+            <button @click='sett(1)'>+</button>
+            <button @click='sett(0)'>-</button>
+        </div>
+    </template>
+    <script>
+        console.log(Vue);
+        Vue.createApp({
+            template: `#txt`,
+            data(){
+                return {
+                    count: 0
+                }
+            },
+            methods: {
+                sett(num){
+                    if(num){
+                        this.count++
+                    }else{
+                        this.count--
+                    }
+                }
+            }
+        }).mount('#app')
+
+    </script>
+</body>
+</html>

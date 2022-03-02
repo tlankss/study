@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app"></div>
+    <!-- 
+        v-bind:
+            动态style class 属性名称 对象
+     -->
+    <template id="my-app">
+        <div :class="{'class1': isClass, 'class2': true}">11s</div>
+        <div :class="[class1 ? '' : 'class1' ,'class1']">12s</div>
+        <div :style="{'background': txtColor, fontSize: '24px'}">13s</div>
+        <div :style="[styleObj]">14s</div>
+        <div :[name]='class1'>15s</div>
+        <div v-bind='attArr'>16s</div>
+    </template>
+    <script>
+        Vue.createApp({
+            template: '#my-app',
+            data(){
+                return {
+                    class1: 'blue',
+                    isClass: false,
+                    txtColor: 'red',
+                    styleObj: {
+                        background: 'blue',
+                        'font-size': '20px'
+                    },
+                    name: 'ace',
+                    attArr: {
+                        a: 'a1',
+                        b: 'b1'
+                    }
+                }
+            }
+        }).mount('#app')
+
+    </script>
+</body>
+</html>
