@@ -1,10 +1,9 @@
-<script>
-    /*
-        new 操作符究竟做了什么
-            new实例构造函数，
+/*
+new 操作符究竟做了什么
+    new实例构造函数，
 
-        
-    */
+
+*/
     function Test(name) {
         this.name = name
     }
@@ -40,4 +39,3 @@
 
     let kk = myNew('kk',{a:1})
     console.log(kk)
-</script>

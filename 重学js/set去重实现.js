@@ -1,5 +1,4 @@
-<script>
-    // var arrData =[
+// var arrData =[
     //    {age:18,name:'kk'},
     //    {age:18,name:'kk'},
     //    {age:18,name:'kk'},
@@ -140,4 +139,3 @@
     while (!iterator.next().done) {
         console.log(iterator.next().value);
     }
-</script>

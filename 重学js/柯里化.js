@@ -1,7 +1,6 @@
-<script>
-    /**
+/**
         定义：是把接收多个参数的函数，变成接受多个单一参数的函数，并且返回接受余下参数的函数，而且在参数全部接收后返回结果的函数技术
-    */
+*/
     function fn(x,y,z){
         return x+y+z
     }
@@ -45,4 +44,3 @@
     let fn1 = myCurrying(fn)
     let fn2 = fn1(1)
     console.dir(fn2(2,3,4));
-</script>

@@ -1,5 +1,4 @@
-<script>
-    /**
+ /**
         继承可以帮助我们将重复的代码和逻辑抽取到父类中，子类通过直接继承过来使用
         继承 就是对原型链的适用
 
@@ -76,15 +75,13 @@
         方式四  原型式继承函数  ----- start
     */
     
-    function myObj(obj){
-        function Fn(){}
-        Fn = obj.prototype
-        return new Fn()
-    }
-    function myObj(obj){
-        var newObj = {}
-        Object.setPrototypeOf(newObj,obj)
-        return newObj
-    }
-
-</script>
+        function myObj(obj){
+            function Fn(){}
+            Fn = obj.prototype
+            return new Fn()
+        }
+        function myObj(obj){
+            var newObj = {}
+            Object.setPrototypeOf(newObj,obj)
+            return newObj
+        }

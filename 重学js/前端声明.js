@@ -1,19 +1,18 @@
-<script>
-    /**
-     * 前端声明 var let const
-     *    区别：
-            1.var声明的变量会挂到window上，而let和const不会
-            2.var声明的变量存在变量提升，而let和const不会
-            3.let和const声明形成块作用域，只能在块作用域里访问，不能跨块访问，也不能跨函数访问
-            4.同一作用域下let和const不能声明同名变量，而var可以
-            5.暂时性死区，let和const声明的变量不能在声明前被使用
-            babel在转换的过程中只会实现2，3，5
-     */
-    /**
-        在es5环境中实现let
-            将变量名转换（babel）
-            IIFE（自执行函数）
-    */
+ /**
+ * 前端声明 var let const
+ *    区别：
+    1.var声明的变量会挂到window上，而let和const不会
+    2.var声明的变量存在变量提升，而let和const不会
+    3.let和const声明形成块作用域，只能在块作用域里访问，不能跨块访问，也不能跨函数访问
+    4.同一作用域下let和const不能声明同名变量，而var可以
+    5.暂时性死区，let和const声明的变量不能在声明前被使用
+    babel在转换的过程中只会实现2，3，5
+*/
+/**
+在es5环境中实现let
+    将变量名转换（babel）
+    IIFE（自执行函数）
+*/
     for (var index = 0; index < 10; index++) {
         console.log(index)
     }
@@ -73,4 +72,3 @@
     var kk = _const('kk',99)
     kk = 20
     console.log(kk) // 99
-</script>
