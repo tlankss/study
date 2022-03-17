@@ -36,7 +36,7 @@ class myPromsie{
                     value = value
                     console.log('------------触发resolve',value);
                     this.onFuifilled()
-                },0)
+                },0)　
             }
         },
         reject = (reason) => {
