@@ -1,0 +1,32 @@
+<script>
+
+
+    var arrs = [
+    ],
+    result = [
+        {name:'ll',phone:1},
+        {name:'ll',phone:2},
+        {name:'ll',phone:4},
+        {name:'ll',phone:5},
+
+        {name:'ll',phone:5},
+
+        {name:'ll',phone:5},
+    ];
+    let phones = arrs.reduce((t,v) => [...t,v.phone],[]),
+        curArr = result.reduce((t,v) => {
+            if(!phones.includes(v.phone) && t.length < 4){
+                let curObj = {}
+                curObj.name = ''
+                curObj.phone = v.phone
+                return [...t,curObj]
+            }
+            return t
+        },arrs);
+    console.log(phones,curArr);
+
+   console.log( result.reduce((t,v) => t+=`${v.name}/${v.phone},`,'')   ); 
+
+   {
+       contactList:[’如果完全:15002057018’,\’--:13662700447\’],’fhId’:71379734,’sellId’:2707,’houseType’:2,’yzPrice’:11,’shareWorkerId’:’02028755’,’pillHeaderTag’:’近指导价’,’featureList’:[’近地铁’,’户型方正’,’车位充足’],’follow’:22,’score’:100,’imHeaderTag’:’低于指导价’,’lpName’:’UI自动化测试楼盘（勿动）’,’room’:1,’orientation’:’东’,’buildArea’:100}&isSubpan=true
+</script>
