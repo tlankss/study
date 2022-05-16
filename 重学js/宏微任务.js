@@ -4,7 +4,7 @@
  * 
  * 在任务队列中有宏微任务之分，在执行宏任务之前 必须要微任务已清空，如果不为空优先执行微任务队列中的任务
  *      宏任务队列：setTimeOut、 setInerval、ajax、DOM监听、UI Rendering等
- *      微任务队列：Promise的then回调、Mutation Observer API、 queueMicrotask、queueMacrotask等
+ *      微任务队列：Promise的then回调、Mutation Observer API、 queueMicrotask等
  */
 
 

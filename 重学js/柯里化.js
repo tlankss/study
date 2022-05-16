@@ -38,9 +38,10 @@
                 }
             }
         }
-        
         return curried
     }
     let fn1 = myCurrying(fn)
     let fn2 = fn1(1)
     console.dir(fn2(2,3,4));
+
+
